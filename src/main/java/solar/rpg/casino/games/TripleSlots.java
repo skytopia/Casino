@@ -11,6 +11,16 @@ import solar.rpg.casino.data.GameType;
 import solar.rpg.skyblock.island.Island;
 import solar.rpg.skyblock.util.Utility;
 
+/**
+ * More complex slots game. Acts on a similar reward system as single slots.
+ * The rarer the ore, the more money is given as a reward.
+ * However, the ore must be in a 2-in-a-row or 3-in-a-row formation.
+ * A 2-in-a-row rewards the player less than a 3-in-a-row does.
+ *
+ * @author lavuh
+ * @version 1.1
+ * @since 1.0
+ */
 public class TripleSlots extends Game {
 
     /* 3 columns of single slots, one button. */

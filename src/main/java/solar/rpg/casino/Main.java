@@ -10,6 +10,13 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Main plugin class. Acts as entry point and central point of plugin.
+ *
+ * @author lavuh
+ * @version 1.1
+ * @since 1.0
+ */
 public class Main extends JavaPlugin {
 
     /* Reference to Skyblock supercontroller. */
