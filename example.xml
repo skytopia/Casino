@@ -1,0 +1,63 @@
+<games>
+    <!-- Single-row slots machine -->
+    <slots world="world">
+        <top x="" y="" z=""/>
+        <middle x="" y="" z=""/>
+        <bottom x="" y="" z=""/>
+        <button x="" y="" z=""/>
+    </slots>
+
+    <!-- Triple-row slots machine -->
+    <tripleslots world="world">
+        <top1 x="" y="" z=""/>
+        <top2 x="" y="" z=""/>
+        <top3 x="" y="" z=""/>
+        <middle1 x="" y="" z=""/>
+        <middle2 x="" y="" z=""/>
+        <middle3 x="" y="" z=""/>
+        <bottom1 x="" y="" z=""/>
+        <bottom2 x="" y="" z=""/>
+        <bottom3 x="" y="" z=""/>
+        <button x="" y="" z=""/>
+    </tripleslots>
+
+    <!-- Hot or not machine -->
+    <lovetester world="world">
+        <top x="" y="" z=""/>
+        <bottom x="" y="" z=""/>
+        <head x="" y="" z=""/>
+        <sign x="" y="" z=""/>
+        <button x="" y="" z=""/>
+    </lovetester>
+
+    <!-- Compatibility tester -->
+    <compatibility world="world">
+        <blocks>
+            <block x="" y="" z=""/>
+            <block x="" y="" z=""/>
+            <block x="" y="" z=""/>
+            <block x="" y="" z=""/>
+        </blocks>
+        <head1 x="" y="" z=""/>
+        <head2 x="" y="" z=""/>
+        <button1 x="" y="" z=""/>
+        <button2 x="" y="" z=""/>
+        <sign x="" y="" z=""/>
+    </compatibility>
+
+    <!-- Simple roulette -->
+    <roulette world="world">
+        <head x="" y="" z=""/>
+        <button x="" y="" z=""/>
+        <win direction="NORTH"/>
+    </roulette>
+
+    <!-- Blackjack table -->
+    <blackjack world="world">
+        <hitme x="" y="" z=""/>
+        <stand x="" y="" z=""/>
+        <info x="" y="" z=""/>
+        <cards1to3 x="" y="" z=""/>
+        <cards4to6 x="" y="" z=""/>
+    </blackjack>
+</games>

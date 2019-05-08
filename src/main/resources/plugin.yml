@@ -1,0 +1,4 @@
+name: Casino
+main: solar.rpg.casino.Main
+depend: [Skyblock]
+version: 1.1
