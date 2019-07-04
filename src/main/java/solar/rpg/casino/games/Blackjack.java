@@ -12,9 +12,9 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import solar.rpg.casino.Main;
 import solar.rpg.casino.data.GameType;
-import solar.rpg.skyblock.cb.Title;
 import solar.rpg.skyblock.island.Island;
 import solar.rpg.skyblock.util.StringUtility;
+import solar.rpg.skyblock.util.Title;
 import solar.rpg.skyblock.util.Utility;
 
 import java.util.ArrayList;

@@ -109,11 +109,6 @@ public class Slots extends Game {
                 MIDDLE.setType(TOP.getType());
                 TOP.setType(genSlot());
 
-                // Set each block's data to 4 so any Stone will look like Diorite.
-                BOTTOM.setData((byte) 4);
-                MIDDLE.setData((byte) 4);
-                TOP.setData((byte) 4);
-
                 // Play a sound and spawn a particle.
                 WORLD.playSound(TOP.getLocation().subtract(0.5, -0.5, 0.5), org.bukkit.Sound.BLOCK_TRIPWIRE_CLICK_ON, 2.0F, 2.0F);
                 WORLD.spawnParticle(org.bukkit.Particle.CRIT_MAGIC, MIDDLE.getLocation().subtract(0.5, 0, 0), 1);
@@ -140,7 +135,7 @@ public class Slots extends Game {
         String prizeMessage;
         int prizeAmount;
         switch (mat) {
-            case STONE: {
+            case POLISHED_DIORITE: {
                 prizeMessage = ChatColor.GRAY + "DIORITE! " + ChatColor.GOLD + "You won 250ƒ!";
                 prizeAmount = 250;
                 break;
@@ -200,7 +195,7 @@ public class Slots extends Game {
      */
     private Material genSlot() {
         if (RNG.nextInt(6) != 1)
-            return Material.STONE;
+            return Material.POLISHED_DIORITE;
         return PLUGIN.cloud().ore().genOre(RNG.nextInt(100) + 1);
     }
 

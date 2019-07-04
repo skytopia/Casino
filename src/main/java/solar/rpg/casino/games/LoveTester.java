@@ -113,13 +113,11 @@ public class LoveTester extends Game {
 
                 // Set the block of the bottom row to the top row.
                 TOP.setType(BOTTOM.getType());
-                TOP.setData(BOTTOM.getData());
 
                 // Regenerate a new bottom row block.
                 // Set the 2nd last spin to Magma if the player is in the 'Always Hot' list of players!
-                ItemStack gen = spins == 1 && ALWAYS_HOT.contains(player.getName()) ? new ItemStack(Material.MAGMA, 1) : genSlot();
+                ItemStack gen = spins == 1 && ALWAYS_HOT.contains(player.getName()) ? new ItemStack(Material.MAGMA_BLOCK, 1) : genSlot();
                 BOTTOM.setType(gen.getType());
-                BOTTOM.setData(gen.getData().getData());
 
                 // Play a clicking sound and spawn hearts above the slot rows.
                 WORLD.playSound(TOP.getLocation().subtract(0.5, -0.5, 0.5), Sound.BLOCK_TRIPWIRE_CLICK_ON, 2.0F, 2.0F);
@@ -128,7 +126,7 @@ public class LoveTester extends Game {
                 // Calculate results if this is the last spin!
                 if (spins == 0) {
                     // Translate block data into result, and notify whoever necessary!
-                    String result = translateData(TOP.getType(), TOP.getData());
+                    String result = translate(TOP.getType());
                     sign.setLine(2, result);
                     sign.update(true);
                     if (result.equals("HOT!!!"))
@@ -158,22 +156,21 @@ public class LoveTester extends Game {
      * Translates block data into a "Hot or Not" result.
      *
      * @param type The material type.
-     * @param data Any data attached.
      * @return The "Hot or Not" result.
      */
-    private String translateData(Material type, byte data) {
-        switch (data) {
-            case 0:
-                if (type == Material.WOOL)
-                    return "Stone Cold";
-                else return "HOT!!!";
-            case 8:
+    private String translate(Material type) {
+        switch (type) {
+            case STONE:
+                return "Stone Cold";
+            case MAGMA_BLOCK:
+                return "HOT!!!";
+            case LIGHT_GRAY_WOOL:
                 return "Not";
-            case 7:
+            case GRAY_WOOL:
                 return "Average";
-            case 6:
+            case PINK_WOOL:
                 return "Cute!";
-            case 14:
+            case RED_WOOL:
                 return "Beautiful!";
             default:
                 // This value should never be a possibility.
@@ -187,17 +184,17 @@ public class LoveTester extends Game {
     private ItemStack genSlot() {
         switch (RNG.nextInt(6)) {
             case 0:
-                return new ItemStack(Material.WOOL, 1, (short) 0);
+                return new ItemStack(Material.STONE);
             case 1:
-                return new ItemStack(Material.WOOL, 1, (short) 8);
+                return new ItemStack(Material.LIGHT_GRAY_WOOL);
             case 2:
-                return new ItemStack(Material.WOOL, 1, (short) 7);
+                return new ItemStack(Material.GRAY_WOOL);
             case 3:
-                return new ItemStack(Material.WOOL, 1, (short) 6);
+                return new ItemStack(Material.PINK_WOOL);
             case 4:
-                return new ItemStack(Material.WOOL, 1, (short) 14);
+                return new ItemStack(Material.RED_WOOL);
             default:
-                return new ItemStack(Material.MAGMA, 1);
+                return new ItemStack(Material.MAGMA_BLOCK);
         }
     }
 }

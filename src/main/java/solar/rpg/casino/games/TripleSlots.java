@@ -147,13 +147,13 @@ public class TripleSlots extends Game {
                     // Stop the first row, continue spinning.
                     stop1 = true;
                     spins = 5 + RNG.nextInt(15);
-                    WORLD.playSound(MIDDLE1.getLocation().subtract(0.5, 0.5, 0.5), Sound.BLOCK_NOTE_BASS, 3.0F, 0.75F);
+                    WORLD.playSound(MIDDLE1.getLocation().subtract(0.5, 0.5, 0.5), Sound.BLOCK_NOTE_BLOCK_BASS, 3.0F, 0.75F);
                 } else if (spins == 0 && !stop2) {
                     stop2 = true;
                     spins = 5 + RNG.nextInt(5);
-                    WORLD.playSound(MIDDLE2.getLocation().subtract(0.5, 0.5, 0.5), Sound.BLOCK_NOTE_BASS, 3.0F, 0.75F);
+                    WORLD.playSound(MIDDLE2.getLocation().subtract(0.5, 0.5, 0.5), Sound.BLOCK_NOTE_BLOCK_BASS, 3.0F, 0.75F);
                 } else if (spins == 0) {
-                    WORLD.playSound(MIDDLE3.getLocation().subtract(0.5, 0.5, 0.5), Sound.BLOCK_NOTE_BASS, 3.0F, 0.75F);
+                    WORLD.playSound(MIDDLE3.getLocation().subtract(0.5, 0.5, 0.5), Sound.BLOCK_NOTE_BLOCK_BASS, 3.0F, 0.75F);
                     determineReward(island, player);
                     inUse = false;
                     cancel();

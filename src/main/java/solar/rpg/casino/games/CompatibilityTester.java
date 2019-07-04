@@ -227,11 +227,9 @@ public class CompatibilityTester extends Game {
 
                 // Generate a new block type to update the 4 decoration blocks.
                 // Set the last spin to Magma if the couple is in the 'Always Perfect Match' list of couples!
-                ItemStack gen = spins == 0 && isAlwaysPerfectMatch(p1.getName(), p2.getName()) ? new ItemStack(Material.MAGMA, 1) : genSlot();
-                for (Block block : BLOCKS) {
+                ItemStack gen = spins == 0 && isAlwaysPerfectMatch(p1.getName(), p2.getName()) ? new ItemStack(Material.MAGMA_BLOCK, 1) : genSlot();
+                for (Block block : BLOCKS)
                     block.setType(gen.getType());
-                    block.setData(gen.getData().getData());
-                }
 
                 // Play a clicking sound and spawn hearts above the slot rows.
                 WORLD.playSound(SIGN.getLocation().subtract(0.5, -0.5, 0.5), Sound.BLOCK_TRIPWIRE_CLICK_ON, 2.0F, 2.0F);
@@ -239,7 +237,7 @@ public class CompatibilityTester extends Game {
 
                 if (spins == 0) {
                     // Translate block data into result.
-                    String result = translateData(gen.getType(), gen.getData().getData());
+                    String result = translate(gen.getType());
 
                     // Update sign.
                     Sign sign = (Sign) SIGN.getState();
@@ -301,23 +299,22 @@ public class CompatibilityTester extends Game {
      * Translates block data into a compatibility result.
      *
      * @param type The material type.
-     * @param data Any data attached.
      * @return The compatibility result.
      */
-    private String translateData(Material type, byte data) {
-        switch (data) {
-            case 0:
-                if (type.equals(Material.STONE))
-                    return "Incompatible...";
-                else if (type.equals(Material.WOOL))
-                    return "Most Likely Not";
-                else return "Perfect Match!";
-            case 6:
+    private String translate(Material type) {
+        switch (type) {
+            case STONE:
+                return "Incompatible...";
+            case WHITE_WOOL:
+                return "Most Likely Not";
+            case PINK_WOOL:
                 return "Unlikely";
-            case 2:
+            case MAGENTA_WOOL:
                 return "It Could Work!";
-            case 14:
+            case RED_WOOL:
                 return "#Goals";
+            case MAGMA_BLOCK:
+                return "Perfect Match!";
             default:
                 throw new IllegalStateException("Unknown data?");
         }
@@ -329,17 +326,17 @@ public class CompatibilityTester extends Game {
     private ItemStack genSlot() {
         switch (RNG.nextInt(6)) {
             case 0:
-                return new ItemStack(Material.STONE, 1, (short) 0);
+                return new ItemStack(Material.STONE, 1);
             case 1:
-                return new ItemStack(Material.WOOL, 1, (short) 0);
+                return new ItemStack(Material.WHITE_WOOL);
             case 2:
-                return new ItemStack(Material.WOOL, 1, (short) 6);
+                return new ItemStack(Material.PINK_WOOL);
             case 3:
-                return new ItemStack(Material.WOOL, 1, (short) 2);
+                return new ItemStack(Material.MAGENTA_WOOL);
             case 4:
-                return new ItemStack(Material.WOOL, 1, (short) 14);
+                return new ItemStack(Material.RED_WOOL);
             default:
-                return new ItemStack(Material.MAGMA, 1);
+                return new ItemStack(Material.MAGMA_BLOCK);
         }
     }
 }
